@@ -76,7 +76,7 @@ sensor:
       vzero_eta:
         icon_template: mdi:clock-outline
         value_template: >-
-          {{ (as_timestamp(now()) + 2 * 60 * 60 + ((states.sensor.voron_v0_sensor.attributes['print_stats']['print_duration'] / states.sensor.voron_v0_sensor.attributes['display_status']['progress'] - states.sensor.voron_v0_sensor.attributes['print_stats']['print_duration']) if states.sensor.voron_v0_sensor.attributes['display_status']['progress'] > 0 else 0)) | timestamp_custom("%H:%M:%S", 0) if is_state('sensor.voron_v0_sensor', 'OK') else None }}
+          {{ (as_timestamp(now()) + 0 + ((states.sensor.voron_v0_sensor.attributes['print_stats']['print_duration'] / states.sensor.voron_v0_sensor.attributes['display_status']['progress'] - states.sensor.voron_v0_sensor.attributes['print_stats']['print_duration']) if states.sensor.voron_v0_sensor.attributes['display_status']['progress'] > 0 else 0)) | timestamp_custom("%H:%M:%S", local=True) if is_state('sensor.voron_v0_sensor', 'OK') else None }}
 
       vzero_nozzletemp:
         icon_template: mdi:thermometer
